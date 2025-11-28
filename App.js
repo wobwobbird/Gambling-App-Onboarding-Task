@@ -1,12 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Onboarding1 from './src/components/Onboarding1';
+import Onboarding2 from './src/components/Onboarding2';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useFonts } from 'expo-font';
 
 
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'Rubik': require('./assets/fonts/Rubik-VariableFont_wght.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <LinearGradient
       colors={['rgba(113, 179, 113, 0.97)', 'rgba(89, 210, 20, 0.85)']}
@@ -14,36 +24,29 @@ export default function App() {
       end={{ x: 1, y: 0 }}
       style={styles.background}
     >
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.container}>
+      <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'top', 'bottom']}>
+        {/* <View style={styles.container}> */}
           {/* <Text>Open up App.js to start working on your app!</Text> */}
-          <Onboarding1/>
-          <StatusBar style="auto" />
-        </View>
-
+        {/* <Onboarding1/> */}
+        <Onboarding2/>
+        <StatusBar style="auto" />
+        {/* </View> */}
       </SafeAreaView>
-
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  // root: {
+  //   flex: 1,
+  // },
   background: {
     flex: 1,
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0,
   },
   safeArea: {
     flex: 1,
   },
-  container: {
-    // flex: 1,
-    // marginTop: 50,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  // container: {
+  //   flex: 1,
+  // },
 });
