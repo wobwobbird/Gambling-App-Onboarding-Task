@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Onboarding1() {
     const { setCurrentScreen, userName } = useAppContext();
     const contextValue = useAppContext();
+    const [boxesSelected, setBoxesSelected] = useState([]);
 
     const acheivements = [
         "💰  Regain Financial Control",
@@ -20,10 +21,25 @@ export default function Onboarding1() {
     ]
 
     const selectionSingle = (index) => {
+        const isSelected = boxesSelected.includes(acheivements[index]);
+        
         return (
-            <View key={index} style={styles.selectionBox}>
+            <Pressable 
+                key={index}
+                style={[styles.selectionBox, isSelected && styles.selectionBoxSelected]}
+                onPress={() => {
+                    if (isSelected) {
+                        // Deselect: remove from array
+                        setBoxesSelected(boxesSelected.filter(item => item !== acheivements[index]));
+                    } else if (boxesSelected.length < 3) {
+                        // Select: add to array if less than 3
+                        setBoxesSelected([...boxesSelected, acheivements[index]]);
+                    }
+                    // If already 3 selected and trying to add new one, do nothing
+                }}
+            >
                 <Text style={styles.selectionBoxText}>{acheivements[index]}</Text>
-            </View>
+            </Pressable>
         )
     }
 
@@ -52,10 +68,10 @@ export default function Onboarding1() {
                 <Text style={styles.text1}>So tell us {userName},</Text>
                 <Text style={styles.text2}>What do you want to acheive with Fold?</Text>
                 <Text style={styles.text3}>Choose up to 3.</Text>
-                <ScrollView style={styles.selectionContainer}>
-                    {acheivements.map((_, index) => selectionSingle(index))}
-                </ScrollView>
             </View>
+            <ScrollView style={styles.selectionContainer}>
+                {acheivements.map((_, index) => selectionSingle(index))}
+            </ScrollView>
             <Pressable
                 style={styles.button}
                 onPress={() => {
@@ -139,12 +155,9 @@ const styles = StyleSheet.create({
         fontWeight: 300,
     },
     selectionContainer: {
-        gap: 15,
         marginTop: 30,
     },
     selectionBox: {
-        // backgroundColor: "pink",
-
         backgroundColor: "rgba(22, 22, 22, 0.85)",
         height: "auto",
         width: "80%",
@@ -155,29 +168,19 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingHorizontal: 20,
         paddingVertical: 15,
-        // alignItems: "center",
-        
-        // shadowColor: "rgba(255, 255, 255, 0.38)",
-        // shadowOffset: { width: 3, height: 3 },
-        // shadowOpacity: 0.5,
-        // shadowRadius: 5,
-        // elevation: 5,
 
-        // flexDirection: "row",
-        // gap: 5,
-
-
+        marginBottom: 15,
+    },
+    selectionBoxSelected: {
+        backgroundColor: "rgba(89, 210, 20, 0.85)",
     },
     selectionBoxText: {
         fontSize: 18,
         fontFamily: 'Rubik',
         color: "white",
-
-
-
     },
     button: {
-        marginTop: 20,
+        marginTop: 30,
         backgroundColor: "rgba(22, 22, 22, 0.85)",
         height: 50,
         width: "80%",

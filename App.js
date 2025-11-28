@@ -14,7 +14,7 @@ function AppContent() {
 
   return (
     <LinearGradient
-      colors={currentScreen === 'onboarding1' || currentScreen === 'onboarding2' ? ['rgba(113, 179, 113, 0.97)', 'rgba(89, 210, 20, 0.85)'] : ['rgb(0, 0, 0)', 'rgba(0, 0, 0, 0.85)']}
+      colors={currentScreen === 'onboarding1' || currentScreen === 'onboarding2' ? ['rgba(113, 179, 113, 0.97)', 'rgba(89, 210, 20, 0.85)'] : ['rgb(0, 0, 0)', 'rgba(0, 0, 0, 0.95)']}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
       style={styles.background}
