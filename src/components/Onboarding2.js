@@ -5,6 +5,8 @@ import { Ionicons } from '@expo/vector-icons';
 export default function Onboarding1() {
     return (
         <View style={styles.screenHolder}>
+            <View style={styles.box1}/>
+            <View style={styles.box2}/>
             <Text style={styles.text1}>Lets build us a program for you!</Text>
             <Text style={styles.text2}>Get personalised feedback and an expert backed program designed to unlock the potentual within you.</Text>
             <Pressable
@@ -12,11 +14,10 @@ export default function Onboarding1() {
             >
                 <Text style={styles.buttonText}>Build My Program</Text>
                 <Ionicons 
-                name="arrow-forward-circle"
-                size={20}
-                color="rgba(255, 255, 255, 0.85)"
-                // style={style.robot}
-            />
+                    name="arrow-forward-circle"
+                    size={20}
+                    color="rgba(255, 255, 255, 0.85)"
+                />
 
 
             </Pressable>
@@ -30,6 +31,44 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         // alignItems: "center",
         flex: 1,
+    },
+    box1: {
+        height: 200,
+        width: 250,
+        borderRadius: 20,
+        borderWidth: 5,
+        borderColor: 'rgba(4, 143, 55, 0.61)',
+        transform: [{ rotate: '-10deg' }],
+        marginBottom: 80,
+        alignSelf: "center",
+        
+        backgroundColor: "rgb(253, 255, 254)",
+        
+        shadowColor: "rgba(0, 0, 0, 0.26)",
+        shadowOffset: { width: 8, height: 8 },
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        elevation: 5,
+        
+        
+    },
+    box2: {
+        height: 200,
+        width: 250,
+        borderRadius: 20,
+        borderWidth: 5,
+
+        borderColor: 'rgba(4, 143, 55, 0.61)',
+        transform: [{ rotate: '15deg' }],
+        marginBottom: 60,
+        alignSelf: "center",
+        backgroundColor: "rgb(255, 255, 255)",
+
+        shadowColor: "rgba(0, 0, 0, 0.26)",
+        shadowOffset: { width: 8, height: 8 },
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        elevation: 5,
     },
     text1: {
         fontSize: 24,

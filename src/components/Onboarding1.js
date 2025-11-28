@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, Image, Pressable } from "react-native";
 import phone from '../../assets/phone-cal.png';
 import fold from '../../assets/fold-logo.png';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Onboarding1() {
     return (
@@ -20,7 +21,11 @@ export default function Onboarding1() {
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Lets Get Started</Text>
-
+                <Ionicons 
+                    name="leaf"
+                    size={20}
+                    color="rgba(255, 255, 255, 0.85)"
+                />
             </Pressable>
             <Text style={styles.text5}>Already have an account?</Text>
         </View>
@@ -87,6 +92,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 5,
+
+        flexDirection: "row",
+        gap: 5,
     },
     buttonText: {
         fontSize: 20,
