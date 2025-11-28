@@ -2,8 +2,11 @@ import { Text, View, StyleSheet, Image, Pressable } from "react-native";
 import phone from '../../assets/phone-cal.png';
 import fold from '../../assets/fold-logo.png';
 import { Ionicons } from '@expo/vector-icons';
+import { useAppContext } from '../context/AppContext';
 
 export default function Onboarding1() {
+    const { navigateToScreen } = useAppContext();
+
     return (
         <View style={styles.screenHolder}>
             <Image
@@ -19,6 +22,7 @@ export default function Onboarding1() {
             <Text style={styles.text4}>Beyond gambling</Text>
             <Pressable
                 style={styles.button}
+                onPress={() => navigateToScreen('onboarding2')}
             >
                 <Text style={styles.buttonText}>Lets Get Started</Text>
                 <Ionicons 
