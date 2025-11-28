@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 
 export default function Onboarding1() {
-    const { navigateToScreen } = useAppContext();
+    const { setCurrentScreen } = useAppContext();
 
     return (
         <View style={styles.screenHolder}>
@@ -22,7 +22,7 @@ export default function Onboarding1() {
             <Text style={styles.text4}>Beyond gambling</Text>
             <Pressable
                 style={styles.button}
-                onPress={() => navigateToScreen('onboarding2')}
+                onPress={() => setCurrentScreen('onboarding2')}
             >
                 <Text style={styles.buttonText}>Lets Get Started</Text>
                 <Ionicons 

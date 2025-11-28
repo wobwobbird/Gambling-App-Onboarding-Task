@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 
 export default function Onboarding1() {
-    const { navigateToScreen } = useAppContext();
+    const { setCurrentScreen } = useAppContext();
     const contextValue = useAppContext();
 
     return (
@@ -15,7 +15,7 @@ export default function Onboarding1() {
             <Pressable
                 style={styles.button}
                 onPress={() => {
-                    navigateToScreen('onboarding3');
+                    setCurrentScreen('onboarding3');
                     console.log("state ", contextValue);
                 }}
             >

@@ -10,26 +10,26 @@ export const useAppContext = () => {
   return context;
 };
 
+export const useUserName = () => {
+    const { userName } = useAppContext();
+
+    return userName;
+}
+
 export const AppProvider = ({ children }) => {
   const [currentScreen, setCurrentScreen] = useState('onboarding1');
-  const [userData, setUserData] = useState(null);
+  const [userName, setUserName] = useState('');
   
-  // You can add more state as needed
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Functions to update state
-  const navigateToScreen = (screenName) => {
-    setCurrentScreen(screenName);
-  };
+//   const [isLoading, setIsLoading] = useState(false);
 
   // Value object that will be provided to consumers
   const value = {
     currentScreen,
-    navigateToScreen,
-    userData,
-    setUserData,
-    isLoading,
-    setIsLoading,
+    setCurrentScreen,
+    userName,
+    setUserName,
+    // isLoading,
+    // setIsLoading,
   };
 
   return (

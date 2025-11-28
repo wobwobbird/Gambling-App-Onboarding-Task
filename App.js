@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Onboarding1 from './src/components/Onboarding1';
 import Onboarding2 from './src/components/Onboarding2';
 import Onboarding3 from './src/components/Onboarding3';
-import Onboarding5 from './src/components/Onboardin53';
+import Onboarding5 from './src/components/Onboarding5';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';

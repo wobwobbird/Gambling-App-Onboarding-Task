@@ -4,9 +4,8 @@ import { useAppContext } from '../context/AppContext';
 import * as Progress from 'react-native-progress';
 import { useState } from "react";
 
-
 export default function Onboarding1() {
-    const { navigateToScreen } = useAppContext();
+    const { setCurrentScreen, setUserName } = useAppContext();
     const contextValue = useAppContext();
     const [nameInput, setNameInput] = useState('');
 
@@ -16,7 +15,7 @@ export default function Onboarding1() {
                 <View style={styles.progressBox}>
                     <Pressable 
                         style={styles.progressBoxButtonContainer}
-                        onPress={() => navigateToScreen('onboarding2')}
+                        onPress={() => setCurrentScreen('onboarding2')}
         
                     >
                         <Ionicons 
@@ -36,6 +35,7 @@ export default function Onboarding1() {
                 <Text style={styles.text2}>What should we call you?</Text>
                 <TextInput
                     style={styles.nameInput}
+                    onChangeText={(text) => setNameInput(text)}
                     placeholder="Enter Name"
                     placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 />
@@ -44,9 +44,11 @@ export default function Onboarding1() {
             </View>
             <Pressable
                 style={styles.button}
+                disabled={!nameInput}
                 onPress={() => {
-                    navigateToScreen('onboarding5');
-                    // console.log("state ", contextValue);
+                    console.log("state ", contextValue);
+                    setUserName(nameInput);
+                    setCurrentScreen('onboarding5');
                 }}
             >
                 <Text style={styles.buttonText}>Next</Text>
