@@ -12,7 +12,6 @@ export const useAppContext = () => {
 
 export const useUserName = () => {
     const { userName } = useAppContext();
-
     return userName;
 }
 
@@ -20,16 +19,12 @@ export const AppProvider = ({ children }) => {
   const [currentScreen, setCurrentScreen] = useState('onboarding1');
   const [userName, setUserName] = useState('');
   
-//   const [isLoading, setIsLoading] = useState(false);
-
   // Value object that will be provided to consumers
   const value = {
     currentScreen,
     setCurrentScreen,
     userName,
     setUserName,
-    // isLoading,
-    // setIsLoading,
   };
 
   return (

@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, Pressable, TextInput } from "react-native";
+import { Text, View, StyleSheet, Pressable, TextInput } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 import { useState } from "react";
@@ -23,7 +23,6 @@ export default function Onboarding1() {
                             style={styles.progressBoxButtonSelf}
                         />
                     </Pressable>
-                    {/* <Progress.Bar progress={0.5} width={300} height={20} /> */}
                     <View style={styles.progressBarContainer}>
                         <View style={[styles.progressBarFill, { width: `${0.1 * 100}%` }]} />
                     </View>
@@ -113,7 +112,6 @@ const styles = StyleSheet.create({
         backgroundColor: "rgba(22, 22, 22, 0.85)",
         alignSelf: "center",
         marginTop: 150,
-
         paddingHorizontal: 20,
         fontFamily: 'Rubik',
         fontSize: 20,
@@ -132,20 +130,17 @@ const styles = StyleSheet.create({
         height: 50,
         width: "80%",
         borderRadius: 25,
-
         alignSelf: "center",
-
         justifyContent: "center",
         alignItems: "center",
-        
+        flexDirection: "row",
+        gap: 5,
+
         shadowColor: "rgba(255, 255, 255, 0.38)",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 5,
-
-        flexDirection: "row",
-        gap: 5,
     },
     buttonText: {
         fontSize: 20,

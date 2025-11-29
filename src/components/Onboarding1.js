@@ -34,7 +34,6 @@ export default function Onboarding1() {
             <Text style={styles.text5}>Already have an account?</Text>
         </View>
     )
-
 }
 
 const styles = StyleSheet.create({
@@ -62,7 +61,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 5,
         elevation: 5,
-
     },
     text2: {
         marginTop: 30,
@@ -87,18 +85,16 @@ const styles = StyleSheet.create({
         height: 50,
         width: "80%",
         borderRadius: 25,
-
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "row",
+        gap: 5,
         
         shadowColor: "rgb(0, 0, 0)",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 5,
-
-        flexDirection: "row",
-        gap: 5,
     },
     buttonText: {
         fontSize: 20,
@@ -112,5 +108,4 @@ const styles = StyleSheet.create({
         fontFamily: 'Rubik',
         color: "white",        
     }
-
 })

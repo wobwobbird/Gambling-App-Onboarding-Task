@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 
@@ -25,8 +25,6 @@ export default function Onboarding1() {
                     size={20}
                     color="rgba(255, 255, 255, 0.85)"
                 />
-
-
             </Pressable>
         </View>
     )
@@ -36,7 +34,6 @@ export default function Onboarding1() {
 const styles = StyleSheet.create({
     screenHolder: {
         justifyContent: "flex-end",
-        // alignItems: "center",
         flex: 1,
     },
     box1: {
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
         transform: [{ rotate: '-10deg' }],
         marginBottom: 80,
         alignSelf: "center",
-        
         backgroundColor: "rgb(253, 255, 254)",
         
         shadowColor: "rgba(0, 0, 0, 0.26)",
@@ -56,8 +52,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 5,
         elevation: 5,
-        
-        
     },
     box2: {
         height: 200,
@@ -97,20 +91,17 @@ const styles = StyleSheet.create({
         height: 50,
         width: "80%",
         borderRadius: 25,
-
         alignSelf: "center",
-
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "row",
+        gap: 5,
         
         shadowColor: "rgb(0, 0, 0)",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 5,
-
-        flexDirection: "row",
-        gap: 5,
     },
     buttonText: {
         fontSize: 20,
