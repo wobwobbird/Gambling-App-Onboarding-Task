@@ -1,7 +1,5 @@
 import { registerRootComponent } from 'expo';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-
 import App from './App';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
