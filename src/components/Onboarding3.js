@@ -4,9 +4,9 @@ import { useAppContext } from '../context/AppContext';
 import { useState } from "react";
 
 export default function Onboarding1() {
-    const { setCurrentScreen, setUserName } = useAppContext();
+    const { setCurrentScreen, setUserName, userName } = useAppContext();
     const contextValue = useAppContext();
-    const [nameInput, setNameInput] = useState('');
+    const [nameInput, setNameInput] = useState(userName || '');
 
     return (
         <View style={styles.screenHolder}>
@@ -15,7 +15,6 @@ export default function Onboarding1() {
                     <Pressable 
                         style={styles.progressBoxButtonContainer}
                         onPress={() => setCurrentScreen('onboarding2')}
-        
                     >
                         <Ionicons 
                             name="chevron-back"
@@ -28,18 +27,16 @@ export default function Onboarding1() {
                     <View style={styles.progressBarContainer}>
                         <View style={[styles.progressBarFill, { width: `${0.1 * 100}%` }]} />
                     </View>
-
                 </View>
                 <Text style={styles.text1}>First things first,</Text>
                 <Text style={styles.text2}>What should we call you?</Text>
                 <TextInput
                     style={styles.nameInput}
                     onChangeText={(text) => setNameInput(text)}
+                    value={nameInput}
                     placeholder="Enter Name"
                     placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 />
-
-
             </View>
             <Pressable
                 style={styles.button}
@@ -56,8 +53,6 @@ export default function Onboarding1() {
                     size={20}
                     color="rgba(255, 255, 255, 0.85)"
                 />
-
-
             </Pressable>
         </View>
     )
@@ -67,28 +62,22 @@ export default function Onboarding1() {
 const styles = StyleSheet.create({
     screenHolder: {
         justifyContent: "space-between",
-        // alignItems: "center",
         flex: 1,
     },
     progressBox: {
         flexDirection: "row",
         justifyContent: "space-between",
-        // backgroundColor: "pink",
         marginHorizontal: 20,
         marginBottom: 20,
         gap: 10,
     },
     progressBoxButtonContainer: {
-        // backgroundColor: "green",
         width: 20,
-
     },
     progressBoxButtonSelf: {
-        // backgroundColor: "red",
         width: "100%",
         Height: "100%",
         left: -10,
-
     },
     progressBarContainer: {
         height: 15,
