@@ -4,6 +4,7 @@ import Onboarding1 from './src/components/Onboarding1';
 import Onboarding2 from './src/components/Onboarding2';
 import Onboarding3 from './src/components/Onboarding3';
 import Onboarding5 from './src/components/Onboarding5';
+import Onboarding6 from './src/components/Onboarding6';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
@@ -24,6 +25,7 @@ function AppContent() {
         {currentScreen === 'onboarding2' && <Onboarding2 />}
         {currentScreen === 'onboarding3' && <Onboarding3 />}
         {currentScreen === 'onboarding5' && <Onboarding5 />}
+        {currentScreen === 'onboarding6' && <Onboarding6 />}
         <StatusBar style="auto" />
       </SafeAreaView>
     </LinearGradient>

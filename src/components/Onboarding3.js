@@ -1,7 +1,6 @@
 import { Text, View, StyleSheet, Image, Pressable, TextInput } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
-import * as Progress from 'react-native-progress';
 import { useState } from "react";
 
 export default function Onboarding1() {

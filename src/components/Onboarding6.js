@@ -9,14 +9,10 @@ export default function Onboarding1() {
     const [boxesSelected, setBoxesSelected] = useState([]);
 
     const acheivements = [
-        "💰  Regain Financial Control",
-        "🛑  Reduce Gambling Urges",
-        "💡  Improve Mental Clarity",
-        "💚  Rebuild Relationships",
-        "😌  Reduce Anxiety and Stress",
-        "😴  Restore Sleep Quality",
-        "🎨  Find Healthy Alternatives",
-        "🎯  Build Self-Control and Discipline"
+        "🚫 Stop Gambling Completely",
+        "📉 Use Less or Differently",
+        "📊 Continue With Current Use",
+        "🤔 Not Sure Yet",
     ]
 
     const selectionSingle = (index) => {
@@ -64,8 +60,8 @@ export default function Onboarding1() {
                     </View>
 
                 </View>
-                <Text style={styles.text1}>So tell us {userName},</Text>
-                <Text style={styles.text2}>What do you want to acheive with Fold?</Text>
+                <Text style={styles.text1}>Git it {userName}!</Text>
+                <Text style={styles.text2}>Now, what are your long-term goals regarding gambling?</Text>
                 <Text style={styles.text3}>Choose up to 3.</Text>
             </View>
             <ScrollView style={styles.selectionContainer}>
@@ -74,7 +70,7 @@ export default function Onboarding1() {
             <Pressable
                 style={styles.button}
                 onPress={() => {
-                    setCurrentScreen('onboarding6');
+                    setCurrentScreen('onboarding5');
                     // console.log("state ", contextValue);
                 }}
             >
