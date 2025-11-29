@@ -5,8 +5,7 @@ import { useState } from "react";
 
 export default function Onboarding1() {
     const { setCurrentScreen, userName } = useAppContext();
-    const contextValue = useAppContext();
-    const [boxesSelected, setBoxesSelected] = useState([]);
+    const [boxSelected, useBoxSelected] = useState('');
 
     const acheivements = [
         "🚫 Stop Gambling Completely",
@@ -15,23 +14,12 @@ export default function Onboarding1() {
         "🤔 Not Sure Yet",
     ]
 
-    const selectionSingle = (index) => {
-        const isSelected = boxesSelected.includes(acheivements[index]);
-        
+    const selectionSingle = (index) => {        
         return (
             <Pressable 
                 key={index}
-                style={[styles.selectionBox, isSelected && styles.selectionBoxSelected]}
-                onPress={() => {
-                    if (isSelected) {
-                        // Deselect: remove from array
-                        setBoxesSelected(boxesSelected.filter(item => item !== acheivements[index]));
-                    } else if (boxesSelected.length < 3) {
-                        // Select: add to array if less than 3
-                        setBoxesSelected([...boxesSelected, acheivements[index]]);
-                    }
-                    // If already 3 selected and trying to add new one, do nothing
-                }}
+                style={[styles.selectionBox, boxSelected === acheivements[index] && styles.selectionBoxSelected]}
+                onPress={() => useBoxSelected(acheivements[index])}
             >
                 <Text style={styles.selectionBoxText}>{acheivements[index]}</Text>
             </Pressable>
@@ -44,8 +32,7 @@ export default function Onboarding1() {
                 <View style={styles.progressBox}>
                     <Pressable 
                         style={styles.progressBoxButtonContainer}
-                        onPress={() => setCurrentScreen('onboarding3')}
-        
+                        onPress={() => setCurrentScreen('onboarding5')}
                     >
                         <Ionicons 
                             name="chevron-back"
@@ -54,15 +41,13 @@ export default function Onboarding1() {
                             style={styles.progressBoxButtonSelf}
                         />
                     </Pressable>
-                    {/* <Progress.Bar progress={0.5} width={300} height={20} /> */}
                     <View style={styles.progressBarContainer}>
-                        <View style={[styles.progressBarFill, { width: `${0.2 * 100}%` }]} />
+                        <View style={[styles.progressBarFill, { width: `${0.3 * 100}%` }]} />
                     </View>
 
                 </View>
-                <Text style={styles.text1}>Git it {userName}!</Text>
+                <Text style={styles.text1}>Got it {userName}!</Text>
                 <Text style={styles.text2}>Now, what are your long-term goals regarding gambling?</Text>
-                <Text style={styles.text3}>Choose up to 3.</Text>
             </View>
             <ScrollView style={styles.selectionContainer}>
                 {acheivements.map((_, index) => selectionSingle(index))}
@@ -70,8 +55,7 @@ export default function Onboarding1() {
             <Pressable
                 style={styles.button}
                 onPress={() => {
-                    setCurrentScreen('onboarding5');
-                    // console.log("state ", contextValue);
+                    // setCurrentScreen('onboarding5');
                 }}
             >
                 <Text style={styles.buttonText}>Next</Text>
@@ -80,39 +64,30 @@ export default function Onboarding1() {
                     size={20}
                     color="rgba(255, 255, 255, 0.85)"
                 />
-
-
             </Pressable>
         </View>
     )
-
 }
 
 const styles = StyleSheet.create({
     screenHolder: {
         justifyContent: "space-between",
-        // alignItems: "center",
         flex: 1,
     },
     progressBox: {
         flexDirection: "row",
         justifyContent: "space-between",
-        // backgroundColor: "pink",
         marginHorizontal: 20,
         marginBottom: 20,
         gap: 10,
     },
     progressBoxButtonContainer: {
-        // backgroundColor: "green",
         width: 20,
-
     },
     progressBoxButtonSelf: {
-        // backgroundColor: "red",
         width: "100%",
         Height: "100%",
         left: -10,
-
     },
     progressBarContainer: {
         height: 15,
@@ -141,14 +116,6 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginHorizontal: 20,
     },
-    text3: {
-        fontSize: 18,
-        fontFamily: 'Rubik',
-        color: "white",
-        marginTop: 5,
-        marginHorizontal: 20,
-        fontWeight: 300,
-    },
     selectionContainer: {
         marginTop: 30,
     },
@@ -157,14 +124,11 @@ const styles = StyleSheet.create({
         height: "auto",
         width: "80%",
         borderRadius: 25,
-
+        marginBottom: 15,
         alignSelf: "center",
-
         justifyContent: "center",
         paddingHorizontal: 20,
         paddingVertical: 15,
-
-        marginBottom: 15,
     },
     selectionBoxSelected: {
         backgroundColor: "rgba(89, 210, 20, 0.85)",
@@ -180,20 +144,17 @@ const styles = StyleSheet.create({
         height: 50,
         width: "80%",
         borderRadius: 25,
-
         alignSelf: "center",
-
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "row",
+        gap: 5,
         
         shadowColor: "rgba(255, 255, 255, 0.38)",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 0.5,
         shadowRadius: 5,
         elevation: 5,
-
-        flexDirection: "row",
-        gap: 5,
     },
     buttonText: {
         fontSize: 20,
