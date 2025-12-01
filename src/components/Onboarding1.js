@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, Image, Pressable } from "react-native";
 import phone from '../../assets/phone-cal.png';
-import fold from '../../assets/fold-logo.png';
+import logo from '../../assets/app-icon.png';
 import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 
@@ -10,7 +10,7 @@ export default function Onboarding1() {
     return (
         <View style={styles.screenHolder}>
             <Image
-                source={fold}
+                source={logo}
                 style={styles.logo}
             />
             <Image
@@ -43,14 +43,15 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     logo: {
-        height: 100,
-        width: 100,
+        height: 80,
+        width: 80,
 
         shadowColor: "rgba(0, 0, 0, 0.61)",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 0.25,
         shadowRadius: 5,
         elevation: 5,
+        marginBottom: 20,
     },
     phoneImage: {
         width: 200,
